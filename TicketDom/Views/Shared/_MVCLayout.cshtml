@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>$(document).ready(function () {
+    
+    $("#nav [href]").each(function () {
+        if (this.href == window.location.href) {
+            $(this).addClass("active");
+        }
+    });
+});</script>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/TicketDom.css" rel="stylesheet" type="text/css" />
+    
+</head>
+<body>
+   
+    <div id="topBar">
+    <div id="header">
+       <h1><div id="Ticket">Ticket</div><div id="Dom">Dominator</div></h1>
+    </div>
+    
+        <ul id="nav">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Shop", "Shop", "Tickets")
+            </li>
+            <li>
+                @Html.ActionLink("About Us", "About", "Tickets")
+            </li>
+            <li>
+                @Html.ActionLink("View Cart", "Cart", "CartItem")
+            </li>
+            <li>
+                @Html.ActionLink("Admin", "Index", "Tickets")
+            </li>
+        </ul>
+    </div>
+    <div id="section">
+        @RenderBody()
+    </div>
+    <div id="specialnotes">
+        @RenderSection("Specialnotes", false)
+    </div>
+   
+    <div id="footer">
+        Copyright TicketDominator 2018 Jeremy Tower
+    </div>
+</body>
+</html>

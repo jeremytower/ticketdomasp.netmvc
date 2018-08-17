@@ -1,0 +1,95 @@
+﻿@model TicketDom.Models.Tickets
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>AddToCart</h2>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Type)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Type)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Title)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Date)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Date)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Venue)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Venue)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.City)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.State)
+    </dd>
+
+
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Seat)
+    </dt>
+
+    <dd>
+        @if (Model.Seating)
+            {
+            @Html.DisplayFor(model => model.Seat);
+            }
+            else
+            {
+            @: N/A
+            }
+
+    </dd>
+
+</dl>
+
+@using (Html.BeginForm())
+{
+<p>Quantity:</p>
+<input type="number" max="10" name="Quantity" />
+   <input type="hidden" name="TicketId" value="@Model.Id" />
+<input type="hidden" name="Price" value="@Model.Price" />
+
+
+     <input type = "submit" value = "add" />
+}
+

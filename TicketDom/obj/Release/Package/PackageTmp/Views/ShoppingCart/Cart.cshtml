@@ -1,0 +1,38 @@
+﻿@model TicketDom.Models.ShoppingCart
+
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2>Cart</h2>
+
+<div>
+    <h4>ShoppingCart</h4>
+    <hr />
+    <table>
+        <tr>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        @foreach (TicketDom.Models.CartItem item in Model.Items)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPrice)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+        }
+    </table>
+        
+      
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
